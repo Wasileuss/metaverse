@@ -1,0 +1,115 @@
+.menu {
+	// .menu__icon
+	// &__icon {
+	// }
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile) {
+			position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+			width: 70%;
+			height: 100%;
+			left: -100%;
+			top: 0;
+			overflow: auto;
+            background-color: #06135f;
+			padding: toRem(50) toRem(15) toRem(15) toRem(30);
+			transition: left 0.5s ease-in-out 0s;
+            z-index: 5;
+            
+			&::before {
+				content: "";
+				position: fixed;
+				width: 70%;
+				height: toRem(70);
+                background-color: #06135f;
+				left: -100%;
+				top: 0;
+                transition: left 0.5s ease-in-out 0s;
+				z-index: 2;
+			}
+			.menu-open & {
+				left: 30%;
+				&::before {
+					left: 30%;
+				}
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		@media (max-width: $mobile) {
+            position: relative;
+            top: toRem(70);
+            // right: toRem(20);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+		}
+	}
+	// .menu__item
+	&__item {
+        align-self: flex-end;
+        letter-spacing: 3px;
+	}
+	// .menu__link
+	&__link {
+		@media (max-width: $mobile) {
+            font-size: toRem(26);
+            font-weight: 700;
+		}
+	}
+}
+
+//Burger Icon
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: toRem(30);
+		height: toRem(18);
+		z-index: 5;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: toRem(2);
+			background-color: #fff;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			// &::before,
+			// &::after {
+			// }
+			&::before {
+				top: calc(50% - toRem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

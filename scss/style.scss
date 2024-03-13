@@ -1,0 +1,80 @@
+@use "sass:math";
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1440;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1200;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+
+// Кольори
+
+
+// Функції
+@import "_functions.scss";
+
+// Шрифти
+// @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import "_fonts.scss";
+
+// Іконки
+// @import "_icons.scss";
+
+// Обнулення
+@import "_reset.scss";
+
+// Брейк-поїнти
+$pc: toRem($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: toRem(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: toRem(767.98); // Телефони L
+$mobileSmall: toRem(479.98); // Телефони S
+
+// Компоненти
+@import "_common.scss";
+@import "_header.scss";
+@import "_home.scss";
+@import "_footer.scss";
+
+html {  
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #ffffff;
+	background-color: #010208;
+    font-family: "Poppins", sans-serif;
+    font-size: toRem(18);
+
+	.menu-open & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+}
+
+.wrapper {
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.page {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-width: toRem($containerWidth);
+    width: 100%;
+	margin: 0 auto;
+    @include adaptiveValue("padding-left", 15, 10, 0, 1200, 375);
+    @include adaptiveValue("padding-right", 15, 10, 0, 1200, 375);
+}
+

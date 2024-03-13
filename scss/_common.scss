@@ -1,0 +1,184 @@
+.bg-grad-text {
+    background: rgb(209,14,209);
+    background: linear-gradient(120deg, rgba(209,14,209,1) 0%, rgba(16,163,218,1) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.button {
+    transition: all 0.7s ease 0s;
+    padding: toRem(12) toRem(14);
+    border-radius: toRem(5);
+    font-weight: 500;
+
+    @media (any-hover: hover) {
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+
+    &--border {
+        background-image: radial-gradient(circle at 100% 100%, transparent 4px, #d10ed1 4px, #d10ed1 5px, transparent 5px), linear-gradient(to right, #d10ed1, #10a3da), radial-gradient(circle at 0% 100%, transparent 4px, #10a3da 4px, #10a3da 5px, transparent 5px), linear-gradient(to bottom, #10a3da, #10a3da), radial-gradient(circle at 0% 0%, transparent 4px, #10a3da 4px, #10a3da 5px, transparent 5px), linear-gradient(to left, #10a3da, #d10ed1), radial-gradient(circle at 100% 0%, transparent 4px, #d10ed1 4px, #d10ed1 5px, transparent 5px), linear-gradient(to top, #d10ed1, #d10ed1);
+        background-size: 5px 5px, calc(100% - 10px) 1px, 5px 5px, 1px calc(100% - 10px);
+        background-position: top left,top center,top right,center right, bottom right,bottom center,bottom left,center left;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        transition: all 2s ease 0s;
+    
+        @media (any-hover: hover) {
+            &:hover {
+                animation: gradient 2s ease forwards running;
+                
+                @keyframes gradient {
+                    0% {
+                        background-size: 5px 5px, calc(100% - 10px) 1px, 5px 5px, 1px calc(100% - 10px);
+                    }
+                    50% {
+                        background-size: calc(100% - 10px) 1px, 1px 1px, 1px calc(100% - 10px), 1px 1px;
+                    }
+                    100% {
+                        background-size: 5px 5px, calc(100% - 10px) 1px, 5px 5px, 1px calc(100% - 10px);
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    &--grad {
+        background: rgb(209,14,209);
+        background: linear-gradient(120deg, rgba(209,14,209,1) 0%, rgba(16,163,218,1) 100%);
+
+        @media (any-hover: hover) {
+            &:hover {
+                filter: hue-rotate(-90deg);
+            }
+        }
+    }
+}
+
+// -----------------------------------------
+
+.block {
+
+    &--anim {
+        transform: translateY(100px);
+        opacity: 0;
+        visibility: hidden;
+    
+        &.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+            transition: all 1s ease 1s;
+
+            @media (max-width: $mobile) {
+                transition: all 1s ease 0s;
+                
+            }
+        }
+    }
+}
+
+.card-work {
+
+    &--anim {
+        transform: translateY(100px);
+        opacity: 0;
+        visibility: hidden;
+
+        @media (max-width: toRem(650)) {
+            transform: translateX(100px);
+        }
+    
+        &.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+            transition: all 1s ease 0s;
+
+            @media (max-width: toRem(650)) {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+.anim-left {
+    transform: translateX(-100px);
+    opacity: 0;
+    visibility: hidden;
+
+    &.show-left {
+        transition: all 1s ease 0s;
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.anim-right {
+    transform: translateX(100px);
+    opacity: 0;
+    visibility: hidden;
+
+    &.show-right {
+        transition: all 1s ease .5s;
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+.button-up {
+    position: fixed;
+    width: toRem(50);
+    height: toRem(50);
+    right: toRem(15);
+    bottom: toRem(15);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+
+    @media (any-hover: hover) {
+        &:hover {
+            background: rgb(209,14,209);
+            background: linear-gradient(120deg, rgba(209,14,209,1) 0%, rgba(16,163,218,1) 100%);
+            transform: translateY(toRem(-10));
+        }
+    }
+
+    @media (max-width: toRem(767.98)) {
+        transform: scale(0.9);
+        
+    }
+
+    @media (max-width: toRem(477.98)) {
+        transform: scale(0.8);
+        
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        width: toRem(20);
+        height: toRem(20);
+        border-top: 2px solid #ffffff;
+        border-left: 2px solid #ffffff;
+        left: toRem(15);
+        transform: rotate(45deg);
+    }
+
+    &::before {
+        top: toRem(14);
+    }
+
+    &::after {
+        top: toRem(25);
+    }
+}
+
+

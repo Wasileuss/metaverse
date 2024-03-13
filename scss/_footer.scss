@@ -1,0 +1,201 @@
+.footer {
+    background-color: #090823;
+        @include adaptiveValue("padding-top", 90, 50, 0, 1200, 375);
+        @include adaptiveValue("padding-bottom", 120, 70, 0, 1200, 375);
+
+        @media (max-width: $mobile) {
+            padding-left: toRem(20);
+            padding-right: toRem(20);
+        }
+
+    /* .footer__container */
+
+    &__container {
+        display: flex;
+        @include adaptiveValue("gap", 50, 40, 0, 1200, 375);
+
+        @media (max-width: $tablet) { 
+            flex-wrap: wrap;
+        }
+    }
+
+    /* .footer__logo */
+
+    &__logo {
+        flex: 0 1 toRem(500);
+
+        @media (max-width: $tablet) {
+            flex: 0 1 toRem(350);
+        }
+
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+    }
+
+    /* .footer__title */
+
+    &__title {
+        font-family: 'Orbitron', sans-serif;
+        @include adaptiveValue("font-size", 50, 30, 0, 1200, 375);
+        font-weight: 700;
+        margin-bottom: toRem(25);
+    }
+
+    /* .footer__text */
+
+    &__text {
+
+        p {
+            color: #ffffffcc;
+            @include adaptiveValue("font-size", 18, 14, 0, 1200, 375);
+            line-height: 1.7;
+        }
+    }
+
+    /* .footer__content */
+
+    &__content {
+        display: flex;
+        gap: toRem(20);
+            justify-content: space-between;
+        flex: 0 1 toRem(350);
+
+        @media (max-width: $mobile) {
+            flex: 0 1 toRem(500);
+        }
+    }
+
+    /* .footer__about */
+
+    &__about {
+        flex: 0 1 toRem(150);
+    }
+
+    /* .footer__subtitle */
+
+    // &__subtitle {
+    // }
+
+    /* .footer__list */
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(12);
+    }
+
+    /* .footer__item */
+
+    // &__item {
+    // }
+
+    /* .footer__link */
+
+    &__link {
+        position: relative;
+        @include adaptiveValue("font-size", 18, 14, 0, 1200, 375);
+        line-height: 1.4;
+        transition: all 0.5s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background: rgb(209,14,209);
+                background: linear-gradient(120deg, rgba(209,14,209,1) 0%, rgba(16,163,218,1) 100%);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: toRem(-2);
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: rgb(209,14,209);
+            background: linear-gradient(120deg, rgba(209,14,209,1) 0%, rgba(16,163,218,1) 100%);
+            transition: all 0.5s ease 0s;
+        }
+    }
+
+    /* .footer__services */
+
+    &__services {
+        flex: 0 1 toRem(150);
+    }
+
+    /* .footer__social */
+
+    &__social {
+        flex: 0 1 toRem(250);
+
+        @media (max-width: $tablet) {
+            flex: 1 1 100%;
+        }
+    }
+}
+
+.social-footer {
+    display: flex;
+    flex-direction: column;
+
+    /* .social-footer__subtitle */
+
+    &__subtitle {
+
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+
+    /* .social-footer__list */
+
+    &__list {
+        display: flex;
+        gap: toRem(20);
+        margin-bottom: toRem(24);
+    }
+
+    /* .social-footer__item */
+
+    &__item {
+        width: toRem(35);
+        height: toRem(35);
+        overflow: hidden;
+        transition: all 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                transform: scale(1.3);
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    /* .social-footer__copyright */
+
+    &__copyright {
+        font-size: toRem(16);
+        line-height: 1.5;
+    }
+}
+
+.subtitle {
+    font-family: 'Orbitron', sans-serif;
+    @include adaptiveValue("font-size", 20, 16, 0, 1200, 375);
+    font-weight: 700;
+    margin-bottom: toRem(25);
+}
